@@ -34,6 +34,7 @@ export class SocketServer{
 
     connect(socket){
         socket.on('handshake',(data,cb) => {
+            
             this.sockets.insert(socket)
             //search for corresponding client
             let clientid = data.clientid
@@ -44,7 +45,9 @@ export class SocketServer{
             
 
             //create new 1 if not found
+            let connectioneventtype = ''
             if(serverclient == null){
+                connectioneventtype = 'clientconnected'
                 serverclient = new ServerClient()
                 this.clients.add(serverclient)
                 serverclient.broadcastdown.onany((data,type) => {
@@ -55,6 +58,8 @@ export class SocketServer{
                     data.clientid = serverclient.id
                     this.listenup.emit(type,data)
                 })
+            }else{
+                connectioneventtype = 'clientreconnected'
             }
 
             socket.prependAny((event,data) => {
@@ -65,7 +70,7 @@ export class SocketServer{
             socket.clientid = serverclient.id
             serverclient.disconnected = false
             cb({clientid:serverclient.id,socketid:socket.id})
-            this.specials.emit('clientconnected',{client:serverclient})
+            this.specials.emit(connectioneventtype,{client:serverclient})
 
         })
 
