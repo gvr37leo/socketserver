@@ -1,4 +1,4 @@
-import {Store} from '../client/store.js'
+import {Entitystore} from '../client/store.js'
 import {GenericEvent} from '../client/eventsystem.js'
 
 //socketserver should take care of socket clients
@@ -11,8 +11,8 @@ import {GenericEvent} from '../client/eventsystem.js'
 
 export class SocketServer{
 
-    clients = new Store()
-    sockets = new Store()
+    clients = new Entitystore()
+    sockets = new Entitystore()
     specials = new GenericEvent()
 
     listenup = new GenericEvent()
