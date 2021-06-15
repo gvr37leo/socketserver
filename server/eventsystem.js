@@ -1,4 +1,4 @@
-class GenericEvent{
+export class GenericEvent{
 
     idcounter = 0
     listeners = []

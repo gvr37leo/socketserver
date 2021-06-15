@@ -1,5 +1,5 @@
-import {Entitystore} from '../client/store.js'
-import {GenericEvent} from '../client/eventsystem.js'
+import {Store} from './simplestore.js'
+import {GenericEvent} from './eventsystem.js'
 
 //socketserver should take care of socket clients
 //and keeping track of connecting and diconnecting clients and doing handshakes
@@ -11,8 +11,8 @@ import {GenericEvent} from '../client/eventsystem.js'
 
 export class SocketServer{
 
-    clients = new Entitystore()
-    sockets = new Entitystore()
+    clients = new Store()
+    sockets = new Store()
     specials = new GenericEvent()
 
     listenup = new GenericEvent()

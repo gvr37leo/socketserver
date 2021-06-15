@@ -1,6 +1,3 @@
-import {ClientSocket} from './clientsocket.js'
-import { Entity , Entitystore} from './store.js'
-
 var socket = new ClientSocket()
 var store = new Entitystore()
 
@@ -21,3 +18,5 @@ socket.socket.onAny((event,data) => {
 })
 
 socket.connect()
+
+ReactDOM.render(test(),document.querySelector('#root'))

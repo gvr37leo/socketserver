@@ -1,6 +1,6 @@
-import {GenericEvent} from './eventsystem.js'
 
-export class ClientSocket{
+
+class ClientSocket{
     clientid
     socketid
     socket

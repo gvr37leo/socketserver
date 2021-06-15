@@ -1,4 +1,4 @@
-class Entity{
+export class Entity{
     id
     name = ''
     parent
@@ -51,7 +51,7 @@ class Entity{
 
 }
 
-class Entitystore{
+export class Entitystore{
     map = new Map()
     counter = 0
     upserts = new Set()

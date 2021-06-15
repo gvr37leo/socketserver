@@ -3,7 +3,7 @@ import express from 'express'
 import {Server} from 'http'
 import {Server as IOServer} from 'socket.io'
 import {SocketServer} from './socketserver.js'
-import {Entity, Entitystore} from '../client/store.js'
+import {Entity, Entitystore} from './store.js'
 
 //issynced should be done per socket/tab
 //store should not be sent to client
